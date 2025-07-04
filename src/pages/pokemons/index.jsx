@@ -4,12 +4,12 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 
 const Pokemons = () => {
-  const [pokemonsList, setData] = useState({});
+  const [pokemonsList, setData] = useState([]);
 
   useEffect(() => {
-    axios.get('https://pokeapi.co/api/v2/pokemon/?limit=10')
+    axios.get('https://pokeapi.co/api/v2/pokemon/?limit=1302')
       .then((response) => {
-        setData(response);
+        setData(response.data.results);
       })
       .catch(error => {
         console.error(error);
